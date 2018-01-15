@@ -1,2 +1,2 @@
 # remy_runs
-Tony flees the state chased by a dog.
+Tony flees the state! Also, he's being chased by a dog!
