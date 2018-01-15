@@ -5,7 +5,9 @@ using UnityEngine;
 public class move_right_doggo : MonoBehaviour {
 
     private bool collide_with_hooman = false;
-    private float doggo_speed = 2.3f; 
+    public float doggo_speed = 2.3f;
+    public GameObject Hooman;
+
 
     // Use this for initialization
     void Start () {
@@ -17,11 +19,15 @@ public class move_right_doggo : MonoBehaviour {
         // Time.deltaTime = dt (in seconds - since last frame)
         // doggo_speed = 2.3f (meters/second - slightly slower than the hooman!)
         // dt * doggo_speed = distance doggo travelled since last frame
-        
-        if( ! collide_with_hooman )
-            transform.Translate (new Vector3 (doggo_speed*Time.deltaTime, 0, 0));
 
-
+        if (!collide_with_hooman)
+            if (this.transform.position.x < Hooman.transform.position.x)
+            {
+                transform.Translate(new Vector3(doggo_speed * Time.deltaTime, 0, 0));
+            }
+            else {
+                transform.Translate(new Vector3(-doggo_speed * Time.deltaTime, 0, 0));
+            }
     }
 
     void OnCollisionEnter2D(Collision2D coll) {

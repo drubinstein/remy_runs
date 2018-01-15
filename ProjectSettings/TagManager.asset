@@ -6,6 +6,7 @@ TagManager:
   tags:
   - hooman
   - doggo
+  - floor
   layers:
   - Default
   - TransparentFX
