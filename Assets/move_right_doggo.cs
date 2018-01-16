@@ -21,13 +21,11 @@ public class move_right_doggo : MonoBehaviour {
         // dt * doggo_speed = distance doggo travelled since last frame
 
         if (!collide_with_hooman)
-            if (this.transform.position.x < Hooman.transform.position.x)
-            {
-                transform.Translate(new Vector3(doggo_speed * Time.deltaTime, 0, 0));
-            }
-            else {
-                transform.Translate(new Vector3(-doggo_speed * Time.deltaTime, 0, 0));
-            }
+        {
+            var direction = this.transform.position.x < Hooman.transform.position.x ? 1 : -1;
+            transform.Translate(new Vector3(direction * doggo_speed * Time.deltaTime, 0, 0));
+        }
+
     }
 
     void OnCollisionEnter2D(Collision2D coll) {
